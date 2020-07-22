@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Slabo 27px', serif;
+    background-image: url("../img/pattern.jpg");
+}
+
+header {
+    background-color: white;
+    position: sticky;
+    margin-bottom: 15px;
+    top: 0;
+}
+
+nav {
+    float: right;
+}
+
+nav li {
+    display: inline;
+    margin-right: 15px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    margin: auto;
+    padding: 10px;
+    width: 75%;
+    background-color: white;
+}
+
+section h1 {
+    text-align: center;
+}
+
+#article-list {
+    margin-bottom: 10px;
+}
+
+article {
+    border-bottom: 1px solid black;
+    text-align: justify;
+}
+
+article h3 {
+    margin-top: 50px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+footer h5 {
+    padding: 20px;
+    margin-top: 15px;
+}
