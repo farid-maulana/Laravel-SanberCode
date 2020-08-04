@@ -1,0 +1,31 @@
+ENTITY :
+1. Profile (Strong entity)
+2. Pertanyaan (Strong entity)
+3. Jawaban (Weak entity)
+4. Komentar (Weak entity)
+5. Vote (Weak entity)
+
+ATRIBUT :
+1. Profile => profile_id(int AI PK), full_name(varchar), email(varchar), image(OLE)
+2. Pertanyaan => pertanyaan_id(int AI PK), judul(varchar), isi(text), tgl_dibuat(date&time), tgl_diperbarui(date&time)
+3. Jawaban => jawaban_id(int AI PK), isi(text), tgl_dibuat(date&time), tgl_diperbarui(date&time)
+4. Komentar => komentar_id(int AI PK), isi(text)
+5. Vote => vote_id(int AI PK), like(int), dislike(int), jumlah_vote(int ATRIBUT TURUNAN)
+
+FOREIGN KEY :
+1. pertanyaan(pengaju_pertanyaan) references profile(profile_id)
+2. jawaban(pemberi_jawaban) references profile(profile_id)
+3. jawaban(id_pertanyaan) references pertanyaan(pertanyaan_id)
+4. komentar(pemberi_komentar) references profile(profile_id)
+5. komentar(id_pertanyaan) references pertanyaan(pertanyaan_id)
+6. komentar(id_jawaban) references jawaban(jawaban_id)
+
+CARDILITIES :
+1. profile (1 to N) pertanyaan
+2. profile (1 to N) jawaban
+3. profile (1 to N) komentar
+4. pertanyaan (1 to N) jawaban
+5. pertanyaan (N to N) komentar
+6. jawaban (N to N) komentar
+7. vote (1 to 1) pertanyaan
+8. vote (1 to 1) jawaban
