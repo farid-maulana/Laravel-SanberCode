@@ -14,7 +14,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="/pertanyaan/{{ $questions->id }}" method="POST">
+      <form role="form" action="{{ route('pertanyaan.update', ['pertanyaan' => $data->id]) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card-body">
@@ -31,6 +31,23 @@
               {{ old('body', $questions->body) }}
             </textarea>
             @error('body')
+              <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="profile_id">Profile ID</label>
+            <select class="form-control @error('profile_id') is-invalid @enderror" rows="3" id="profile_id" name="profile_id">
+              @forelse ($profiles as $data)
+                @if ($data->id === $questions->profiles_id)
+                  <option value="{{ old('profile_id',  $questions->profiles_id) }}" selected>{{ old('profile_id', $questions->profiles_id) }}</option>
+                @else
+                  <option value="{{ $data->id }}">{{ $data->id }}</option>   
+                @endif
+              @empty
+                  <option disable>No Data</option>
+              @endforelse
+            </select>
+            @error('profile_id')
               <div class="alert alert-danger">{{ $message }}</div>
             @enderror
           </div>

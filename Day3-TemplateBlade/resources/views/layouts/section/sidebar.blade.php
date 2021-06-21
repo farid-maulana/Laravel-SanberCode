@@ -42,8 +42,16 @@
               </li>
               <li class="nav-header">Day 4 - CRUD Laravel</li>
               <li class="nav-item">
-                  <a href="/pertanyaan" class="nav-link">
-                      <i class="nav-icon fas fa-list"></i>
+                <a href="/profile" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        List Profile
+                    </p>
+                </a>
+            </li>
+              <li class="nav-item">
+                  <a href="{{ route('pertanyaan.index') }}" class="nav-link">
+                      <i class="nav-icon fas fa-question-circle"></i>
                       <p>
                           List Pertanyaan
                       </p>
